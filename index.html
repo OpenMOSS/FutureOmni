@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> FutureOmni </title>
+
+  <link rel="icon" href="static/images/logo0.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/leaderboard.css">
+  <link rel="stylesheet" href="./static/css/video-player.css">
+
+  <!-- <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator_bulma.min.css" rel="stylesheet">
+  <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script> -->
+  <script type="text/javascript" src="static/js/sort-table.js" defer></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/explorer-index.js"></script>
+  <script src="./static/js/question_card.js"></script>
+
+  <script src="./static/js/leaderboard_testmini.js"></script>
+  <script src="./data/results/output_folders.js" defer></script>
+  <script src="./data/results/model_scores.js" defer></script>
+
+  <script src="./visualizer/data/data_public.js" defer></script>
+
+  <style>
+    .no-sort {
+      cursor: default;
+      pointer-events: none;
+      background-image: none !important;
+      /* Remove the sort arrow */
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <p style="font-size:18px; display: inline; margin-right: -2px; margin-top: 12px;">🔥</p>
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://qq31415926.github.io/FutureOmni/">
+              <b>FutureOmni</b>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title is-bold">
+              <img src="static/images/logo0.png" style="width:1.6em;vertical-align: middle" alt="Logo" />
+              <span class="worldsense" style="vertical-align: middle">FutureOmni</span>
+            </h1>
+            <h2 class="subtitle is-3 publication-subtitle" , style="margin-bottom: 20px;">
+              Evaluating Future Forecasting from Omni-Modal Context for Multimodal LLMs
+            </h2>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                Jack Hong<sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=2VhjOykAAAAJ&hl=zh-CN&oi=ao">Shilin
+                  Yan</a><sup>1†</sup>,</span>
+              <span class="author-block">
+                Jiayin Cai<sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=G0Ow8j8AAAAJ&hl=zh-CN&oi=ao">Xiaolong
+                  Jiang</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=LIu7k7wAAAAJ&hl=en">Yao Hu</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://weidixie.github.io/">Weidi Xie</a><sup>2‡</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>†</sup>Project Leader</span>
+              <span class="author-block"><sup>‡</sup>Corresponding Author</span>
+            </div>
+
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Xiaohongshu Inc.</span>
+              <span class="author-block"><sup>2</sup>Shanghai Jiao Tong University</span>
+            </div>
+
+
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2502.04326" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2502.04326" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/JaaackHongggg/WorldSense"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>GitHub</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <!-- <span class="link-block">
+                  <a href="https://github.com/open-compass/VLMEvalKit/tree/main" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <p style="font-size:18px">🔍</p>
+                    </span>
+                    <span>Eval Code</span>
+                  </a>
+                </span> -->
+                <!-- Dataset Link. -->
+                <span class="link-block">
+                  <a href="https://huggingface.co/datasets/honglyhly/WorldSense"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <!-- <i class="far fa-images"></i> -->
+                      <p style="font-size:18px">🤗</p>
+                      <!-- 🔗 -->
+                    </span>
+                    <span>Dataset</span>
+                  </a>
+                </span>
+                <!-- Leaderboard Link. -->
+                <span class="link-block">
+                  <a href="#leaderboard" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <p style="font-size:18px">🏆</p>
+                    </span>
+                    <span>Leaderboard</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Introduction -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Introduction</h2>
+          <img src="static/images/intro.png" alt="data-sample" style="max-width: 100%;" />
+          <div class="content has-text-justified">
+            Although Multimodal Large Language Models (MLLMs) demonstrate strong omni-modal perception, their ability to forecast future events from audio–visual cues remains largely unexplored, as existing benchmarks focus mainly on retrospective understanding.
+To bridge this gap, we introduce <b>FutureOmni</b>, <u><i>the first benchmark designed to evaluate omni-modal future forecasting from audio–visual environments.</i></u> The evaluated models are required to perform cross-modal causal and temporal reasoning, as well as effectively leverage internal knowledge to predict future events.
+<b>FutureOmni</b> is constructed via a scalable LLM-assisted, human-in-the-loop pipeline and contains <b>919</b> videos and <b>1,034</b> multiple-choice QA pairs across <b>8</b> primary domains.
+Evaluations on <b>13</b> omni-modal and <b>7</b> video-only models show that <i>current systems struggle with audio-visual future prediction, particularly in speech-heavy scenarios</i>, with the best accuracy of 64.8% achieved by Gemini 3 Flash. 
+To mitigate this limitation, we curate a 7K-sample instruction-tuning dataset and propose an Omni-Modal Future Forecasting (OFF) training strategy. 
+Evaluations on <b>FutureOmni</b> and popular audio-visual and video-only benchmarks demonstrate that OFF enhances future forecasting and generalization.
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      updateRowNumbers();
+      document.querySelector("#results").addEventListener("click", updateRowNumbers);
+    });
+
+    function updateRowNumbers() {
+      const rows = document.querySelectorAll("#results tbody tr");
+      rows.forEach((row, index) => {
+        row.querySelector("td").innerText = index + 1;
+      });
+    }
+  </script>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="columns is-centered">
+        <div class="column is-full has-text-centered content">
+
+          <h2 class="title is-3" id="leaderboard">Leaderboard</h2>
+          <div class="content">
+            <p class="mt-3">Overall performance on FutureOmni. Dedicated exclusively to assessing whether models can predict future states based on audio-visual causal logic.
+            </p>
+
+            <table class="js-sort-table" id="results" style="margin-left: auto; margin-right: auto;">
+              <thead>
+                <tr>
+                  <!-- <th rowspan="2" class="no-sort" style="vertical-align: middle; width: 50px;"
+                    data-js-sort-colNum="none"><strong>#</strong></th>
+                  <th rowspan="2" class="no-sort" style="vertical-align: middle; width: 180px;"
+                    data-js-sort-colNum="none"><strong>Model</strong></th>
+                  <th rowspan="2" class="no-sort" style="vertical-align: middle; width: 50px;"
+                    data-js-sort-colNum="none"><strong>LLM <br>Params</strong></th>
+                  <th rowspan="2" class="no-sort" style="vertical-align: middle; width: 100px;"
+                    data-js-sort-colNum="none"><strong>Frames</strong></th>
+                  <th rowspan="2" class="no-sort" style="vertical-align: middle; width: 110px;"
+                    data-js-sort-colNum="none"><strong>Date</strong></th>
+                  <th colspan="2" style="vertical-align: middle; width: 300px;" data-js-sort-colNum="6"><strong>Overall
+                      (%)</strong></th>
+                  <th colspan="2" style="vertical-align: middle; width: 300px;" data-js-sort-colNum="8"><strong>Short
+                      Video (%)</strong></th>
+                  <th colspan="2" style="vertical-align: middle; width: 300px;" data-js-sort-colNum="10"><strong>Medium
+                      Video (%)</strong></th>
+                  <th colspan="2" style="vertical-align: middle; width: 300px;" data-js-sort-colNum="12"><strong>Long
+                      Video (%)</strong></th>
+                </tr>
+                <tr>
+                  <th data-js-sort-colNum="5"><strong>w/o subs</strong></th>
+                  <th data-js-sort-colNum="6"><strong>w subs</strong></th>
+                  <th data-js-sort-colNum="7"><strong>w/o subs</strong></th>
+                  <th data-js-sort-colNum="8"><strong>w subs</strong></th>
+                  <th data-js-sort-colNum="9"><strong>w/o subs</strong></th>
+                  <th data-js-sort-colNum="10"><strong>w subs</strong></th>
+                  <th data-js-sort-colNum="11"><strong>w/o subs</strong></th>
+                  <th data-js-sort-colNum="12"><strong>w subs</strong></th> -->
+
+                  <th class="js-sort-string"><strong>#</strong></th>
+                  <th class="js-sort-string"><strong>Model</strong></th>
+                  <th class="js-sort-string"><strong>LLM Size</strong></th>
+                  <th class="js-sort-string"><strong>Modality</strong></th>
+                  <th class="js-sort-number"><strong>Cartoon</strong></th>
+                  <th class="js-sort-number"><strong>Education</strong></th>
+                  <th class="js-sort-number"><strong>Emergency</strong></th>
+                  <th class="js-sort-number"><strong>Surveillance</strong></th>
+                  <th class="js-sort-number"><strong>Dailylife</strong></th>
+                  <th class="js-sort-number"><strong>Movie</strong></th>
+                  <th class="js-sort-number"><strong>Game</strong></th>
+                  <th class="js-sort-number"><strong>Documentary</strong></th>
+                  <th class="js-sort-number"><strong>Average</strong></th>
+                </tr>
+              </thead>
+              <tbody>
+
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;">
+                    <b class="">
+                      <a href="https://deepmind.google/models/gemini/flash/" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">Gemini 3 Flash</a>
+                      <p style="font-size: 12px; margin-left: 5px; color: #858383;">Google</p>
+                    </b>
+                  </td>
+                  <td style="vertical-align: middle;">- </td>
+                  <td style="vertical-align: middle;">A+V</td>
+                  <td style="vertical-align: middle;">62.71</td>
+                  <td style="vertical-align: middle;">75.00</td>
+                  <td style="vertical-align: middle;">58.70</td>
+                  <td style="vertical-align: middle;">80.28</td>
+                  <td style="vertical-align: middle;">68.75</td>
+                  <td style="vertical-align: middle;">59.03</td>
+                  <td style="vertical-align: middle;">65.06</td>
+                  <td style="vertical-align: middle;">53.47</td>
+                  <td style="vertical-align: middle;"><b class="">64.80</b></td>
+                </tr>
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;">
+                    <b class="">
+                      <a href="https://deepmind.google/models/gemini/pro/" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">Gemini 2.5 Pro</a>
+                      <p style="font-size: 12px; margin-left: 5px; color: #858383;">Google</p>
+                    </b>
+                  </td>
+                  <td style="vertical-align: middle;">-</td>
+                  <td style="vertical-align: middle;">A+V</td>
+                  <td style="vertical-align: middle;">49.15</td>
+                  <td style="vertical-align: middle;">75.00</td>
+                  <td style="vertical-align: middle;">54.35</td>
+                  <td style="vertical-align: middle;">69.01</td>
+                  <td style="vertical-align: middle;">62.50</td>
+                  <td style="vertical-align: middle;">51.54</td>
+                  <td style="vertical-align: middle;">65.06</td>
+                  <td style="vertical-align: middle;">46.53</td>
+                  <td style="vertical-align: middle;"><b class="">57.93</b></td>
+                </tr>
+
+
+
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;">
+                    <b class="">
+                      <a href="https://deepmind.google/models/gemini/flash/" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">Gemini 2.5 Flash</a>
+                      <p style="font-size: 12px; margin-left: 5px; color: #858383;">Google</p>
+                    </b>
+                  </td>
+                  <td style="vertical-align: middle;">- </td>
+                  <td style="vertical-align: middle;">A+V</td>
+                  <td style="vertical-align: middle;">50.85</td>
+                  <td style="vertical-align: middle;">70.00</td>
+                  <td style="vertical-align: middle;">47.83</td>
+                  <td style="vertical-align: middle;">59.15</td>
+                  <td style="vertical-align: middle;">58.59</td>
+                  <td style="vertical-align: middle;">51.54</td>
+                  <td style="vertical-align: middle;">60.24</td>
+                  <td style="vertical-align: middle;">50.00</td>
+                  <td style="vertical-align: middle;"><b class="">55.61</b></td>
+                </tr>
+
+              <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;">
+                    <b class="">
+                      <a href="https://qwen3omni.net/zh" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">Qwen 3 Omni</a>
+                      <p style="font-size: 12px; margin-left: 5px; color: #858383;">Alibaba</p>
+                    </b>
+                  </td>
+                  <td style="vertical-align: middle;">30B</td>
+                  <td style="vertical-align: middle;">A+V</td>
+                  <td style="vertical-align: middle;">52.94</td>
+                  <td style="vertical-align: middle;">68.00</td>
+                  <td style="vertical-align: middle;">32.88</td>
+                  <td style="vertical-align: middle;">62.71</td>
+                  <td style="vertical-align: middle;">59.05</td>
+                  <td style="vertical-align: middle;">45.60</td>
+                  <td style="vertical-align: middle;">62.65</td>
+                  <td style="vertical-align: middle;">49.25</td>
+                  <td style="vertical-align: middle;"><b class="">53.05</b></td>
+                </tr>
+
+                <tr>
+                <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;"><b class=""><a
+                        href="https://www.anthropic.com/claude/haiku" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">Claude Haiku 4.5
+                        <p style="font-size: 12px; margin-left: 5px; color: #858383;">Anthropic</p>
+                      </a></b></td>
+                  <td style="vertical-align: middle;">-</td>
+                  <td style="vertical-align: middle;">A+V</td>
+                  <td style="vertical-align: middle;">55.08</td>
+                  <td style="vertical-align: middle;">66.00</td>
+                  <td style="vertical-align: middle;">44.57</td>
+                  <td style="vertical-align: middle;">57.04</td>
+                  <td style="vertical-align: middle;">51.56</td>
+                  <td style="vertical-align: middle;">48.90</td>
+                  <td style="vertical-align: middle;">57.83</td>
+                  <td style="vertical-align: middle;">41.67</td>
+                  <td style="vertical-align: middle;"><b class="">52.03</b></td>
+              </tr>
+
+              <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;"><b class=""><a
+                        href="https://openai.com/index/hello-gpt-4o/" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">GPT-4o
+                        <p style="font-size: 12px; margin-left: 5px; color: #858383;">OpenAI</p>
+                      </a></b></td>
+                  <td style="vertical-align: middle;">- </td>
+                  <td style="vertical-align: middle;">V</td>
+                  <td style="vertical-align: middle;">44.06</td>
+                  <td style="vertical-align: middle;">65.00</td>
+                  <td style="vertical-align: middle;">34.78</td>
+                  <td style="vertical-align: middle;">57.74</td>
+                  <td style="vertical-align: middle;">52.34</td>
+                  <td style="vertical-align: middle;">50.22</td>
+                  <td style="vertical-align: middle;">51.80</td>
+                  <td style="vertical-align: middle;">36.11</td>
+                  <td style="vertical-align: middle;"><b class="">49.70</b></td>
+                </tr>
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;"><b class=""><a
+                        href="https://arxiv.org/pdf/2511.21631" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;"> Qwen3-VL
+                        <p style="font-size: 12px; margin-left: 5px; color: #858383;">Alibaba</p>
+                      </a></b></td>
+                  <td style="vertical-align: middle;">30B</td>
+                  <td style="vertical-align: middle;">V</td>
+                  <td style="vertical-align: middle;">41.88</td>
+                  <td style="vertical-align: middle;">66.00</td>
+                  <td style="vertical-align: middle;">43.48</td>
+                  <td style="vertical-align: middle;">59.15</td>
+                  <td style="vertical-align: middle;">53.12</td>
+                  <td style="vertical-align: middle;">41.85</td>
+                  <td style="vertical-align: middle;">61.45</td>
+                  <td style="vertical-align: middle;">39.58</td>
+                  <td style="vertical-align: middle;"><b class="">49.32</b></td>
+                </tr>
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;">
+                    <b class="">
+                      <a href="https://arxiv.org/abs/2408.01800" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">MiniCPM-o 2.6</a>
+                      <p style="font-size: 12px; margin-left: 5px; color: #858383;">OpenBMB</p>
+                    </b>
+                  </td>
+                  <td style="vertical-align: middle;">8B</td>
+                  <td style="vertical-align: middle;">A+V</td>
+                  <td style="vertical-align: middle;">48.72</td>
+                  <td style="vertical-align: middle;">63.00</td>
+                  <td style="vertical-align: middle;">43.48</td>
+                  <td style="vertical-align: middle;">59.15</td>
+                  <td style="vertical-align: middle;">50.00</td>
+                  <td style="vertical-align: middle;">41.85</td>
+                  <td style="vertical-align: middle;">62.65</td>
+                  <td style="vertical-align: middle;">36.11</td>
+                  <td style="vertical-align: middle;"><b class="">49.08</b></td>
+                </tr>
+              
+                
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;">
+                    <b class="">
+                      <a href="https://arxiv.org/pdf/2502.04328" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">Ola</a>
+                      <p style="font-size: 12px; margin-left: 5px; color: #858383;">Tsinghua & Tencent & NTU</p>
+                    </b>
+                  </td>
+                  <td style="vertical-align: middle;">7B</td>
+                  <td style="vertical-align: middle;">A+V</td>
+                  <td style="vertical-align: middle;">44.44</td>
+                  <td style="vertical-align: middle;">62.00</td>
+                  <td style="vertical-align: middle;">42.39</td>
+                  <td style="vertical-align: middle;">64.08</td>
+                  <td style="vertical-align: middle;">47.66</td>
+                  <td style="vertical-align: middle;">41.41</td>
+                  <td style="vertical-align: middle;">59.04</td>
+                  <td style="vertical-align: middle;">37.50</td>
+                  <td style="vertical-align: middle;"><b class="">48.54</b></td>
+                </tr>
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;">
+                    <b class="">
+                      <a href="https://qwenlm.github.io/blog/qwen2.5-omni/" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">Qwen 2.5 Omni</a>
+                      <p style="font-size: 12px; margin-left: 5px; color: #858383;">Alibaba</p>
+                    </b>
+                  </td>
+                  <td style="vertical-align: middle;">7B</td>
+                  <td style="vertical-align: middle;">A+V</td>
+                  <td style="vertical-align: middle;">47.86</td>
+                  <td style="vertical-align: middle;">55.00</td>
+                  <td style="vertical-align: middle;">35.87</td>
+                  <td style="vertical-align: middle;">59.86</td>
+                  <td style="vertical-align: middle;">48.44</td>
+                  <td style="vertical-align: middle;">40.09</td>
+                  <td style="vertical-align: middle;">61.45</td>
+                  <td style="vertical-align: middle;">40.28</td>
+                  <td style="vertical-align: middle;"><b class="">47.48</b></td>
+                </tr>
+                
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;">
+                    <b class="">
+                      <a href="https://arxiv.org/pdf/2506.15220" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">video-SALMONN 2+ 7B</a>
+                      <p style="font-size: 12px; margin-left: 5px; color: #858383;">Tsinghua & ByteDance</p>
+                    </b>
+                  </td>
+                  <td style="vertical-align: middle;">7B</td>
+                  <td style="vertical-align: middle;">A+V</td>
+                  <td style="vertical-align: middle;">50.43</td>
+                  <td style="vertical-align: middle;">61.00</td>
+                  <td style="vertical-align: middle;">39.13</td>
+                  <td style="vertical-align: middle;">55.63</td>
+                  <td style="vertical-align: middle;">52.34</td>
+                  <td style="vertical-align: middle;">40.09</td>
+                  <td style="vertical-align: middle;">54.22</td>
+                  <td style="vertical-align: middle;">33.33</td>
+                  <td style="vertical-align: middle;"><b class="">47.00</b></td>
+                </tr>
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;">
+                    <b class="">
+                      <a href="https://arxiv.org/pdf/2501.13106" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">VideoLLaMA3</a>
+                      <p style="font-size: 12px; margin-left: 5px; color: #858383;">Alibaba</p>
+                    </b>
+                  </td>
+                  <td style="vertical-align: middle;">7B</td>
+                  <td style="vertical-align: middle;">V</td>
+                  <td style="vertical-align: middle;">42.74</td>
+                  <td style="vertical-align: middle;">59.00</td>
+                  <td style="vertical-align: middle;">33.70</td>
+                  <td style="vertical-align: middle;">58.16</td>
+                  <td style="vertical-align: middle;">42.97</td>
+                  <td style="vertical-align: middle;">43.61</td>
+                  <td style="vertical-align: middle;">67.47</td>
+                  <td style="vertical-align: middle;">35.66</td>
+                  <td style="vertical-align: middle;"><b class="">46.80</b></td>
+                </tr>
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;">
+                    <b class="">
+                      <a href="https://arxiv.org/pdf/2506.15220" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">video-SALMONN 2 7B</a>
+                      <p style="font-size: 12px; margin-left: 5px; color: #858383;">Tsinghua & ByteDance</p>
+                    </b>
+                  </td>
+                  <td style="vertical-align: middle;">7B</td>
+                  <td style="vertical-align: middle;">A+V</td>
+                  <td style="vertical-align: middle;">43.59</td>
+                  <td style="vertical-align: middle;">55.00</td>
+                  <td style="vertical-align: middle;">39.13</td>
+                  <td style="vertical-align: middle;">57.04</td>
+                  <td style="vertical-align: middle;">48.44</td>
+                  <td style="vertical-align: middle;">40.97</td>
+                  <td style="vertical-align: middle;">57.83</td>
+                  <td style="vertical-align: middle;">34.72</td>
+                  <td style="vertical-align: middle;"><b class="">46.03</b></td>
+                </tr>
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;"><b class=""><a
+                        href="https://arxiv.org/pdf/2511.21631" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;"> Qwen3-VL
+                        <p style="font-size: 12px; margin-left: 5px; color: #858383;">Alibaba</p>
+                      </a></b></td>
+                  <td style="vertical-align: middle;">7B</td>
+                  <td style="vertical-align: middle;">V</td>
+                  <td style="vertical-align: middle;">39.32</td>
+                  <td style="vertical-align: middle;">64.00</td>
+                  <td style="vertical-align: middle;">34.78</td>
+                  <td style="vertical-align: middle;">58.45</td>
+                  <td style="vertical-align: middle;">48.44</td>
+                  <td style="vertical-align: middle;">38.33</td>
+                  <td style="vertical-align: middle;">57.83</td>
+                  <td style="vertical-align: middle;">36.11</td>
+                  <td style="vertical-align: middle;"><b class="">45.84</b></td>
+                </tr>
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;"><b class=""><a
+                        href="https://arxiv.org/pdf/2502.13923" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;"> Qwen2.5-VL
+                        <p style="font-size: 12px; margin-left: 5px; color: #858383;">Alibaba</p>
+                      </a></b></td>
+                  <td style="vertical-align: middle;">7B</td>
+                  <td style="vertical-align: middle;">V</td>
+                  <td style="vertical-align: middle;">43.59</td>
+                  <td style="vertical-align: middle;">58.00</td>
+                  <td style="vertical-align: middle;">30.43</td>
+                  <td style="vertical-align: middle;">52.82</td>
+                  <td style="vertical-align: middle;">48.44</td>
+                  <td style="vertical-align: middle;">37.00</td>
+                  <td style="vertical-align: middle;">53.01</td>
+                  <td style="vertical-align: middle;">34.72</td>
+                  <td style="vertical-align: middle;"><b class="">43.71</b></td>
+                </tr>
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;">
+                    <b class="">
+                      <a href="https://arxiv.org/pdf/2406.07476" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">VideoLLaMA2</a>
+                      <p style="font-size: 12px; margin-left: 5px; color: #858383;">Alibaba</p>
+                    </b>
+                  </td>
+                  <td style="vertical-align: middle;">7B</td>
+                  <td style="vertical-align: middle;">A+V</td>
+                  <td style="vertical-align: middle;">43.59</td>
+                  <td style="vertical-align: middle;">47.00</td>
+                  <td style="vertical-align: middle;">29.35</td>
+                  <td style="vertical-align: middle;">53.52</td>
+                  <td style="vertical-align: middle;">40.62</td>
+                  <td style="vertical-align: middle;">32.60</td>
+                  <td style="vertical-align: middle;">57.83</td>
+                  <td style="vertical-align: middle;">31.94</td>
+                  <td style="vertical-align: middle;"><b class="">40.75</b></td>
+                </tr>
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;">
+                    <b class="">
+                      <a href="https://llava-vl.github.io/blog/2024-01-30-llava-next/" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">LLaVA-NeXT</a>
+                      <p style="font-size: 12px; margin-left: 5px; color: #858383;">Wisconsin-Madison & Microsoft & ByteDance</p>
+                    </b>
+                  </td>
+                  <td style="vertical-align: middle;">7B</td>
+                  <td style="vertical-align: middle;">V</td>
+                  <td style="vertical-align: middle;">43.59</td>
+                  <td style="vertical-align: middle;">49.00</td>
+                  <td style="vertical-align: middle;">31.52</td>
+                  <td style="vertical-align: middle;">49.30</td>
+                  <td style="vertical-align: middle;">35.94</td>
+                  <td style="vertical-align: middle;">38.33</td>
+                  <td style="vertical-align: middle;">50.60</td>
+                  <td style="vertical-align: middle;">31.94</td>
+                  <td style="vertical-align: middle;"><b class="">40.62</b></td>
+                </tr>
+                
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;">
+                    <b class="">
+                      <a href="https://qwenlm.github.io/blog/qwen2.5-omni/" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">Qwen 2.5 Omni</a>
+                      <p style="font-size: 12px; margin-left: 5px; color: #858383;">Alibaba</p>
+                    </b>
+                  </td>
+                  <td style="vertical-align: middle;">3B</td>
+                  <td style="vertical-align: middle;">A+V</td>
+                  <td style="vertical-align: middle;">37.61</td>
+                  <td style="vertical-align: middle;">51.00</td>
+                  <td style="vertical-align: middle;">29.35</td>
+                  <td style="vertical-align: middle;">57.75</td>
+                  <td style="vertical-align: middle;">35.94</td>
+                  <td style="vertical-align: middle;">32.16</td>
+                  <td style="vertical-align: middle;">51.81</td>
+                  <td style="vertical-align: middle;">25.00</td>
+                  <td style="vertical-align: middle;"><b class="">38.91</b></td>
+                </tr>
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;">
+                    <b class="">
+                      <a href="https://arxiv.org/pdf/2311.10122" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">Video-LLaVA</a>
+                      <p style="font-size: 12px; margin-left: 5px; color: #858383;">Peking & Peng Cheng & PandaVilla</p>
+                    </b>
+                  </td>
+                  <td style="vertical-align: middle;">7B</td>
+                  <td style="vertical-align: middle;">V</td>
+                  <td style="vertical-align: middle;">39.32</td>
+                  <td style="vertical-align: middle;">47.00</td>
+                  <td style="vertical-align: middle;">33.70</td>
+                  <td style="vertical-align: middle;">41.55</td>
+                  <td style="vertical-align: middle;">42.19</td>
+                  <td style="vertical-align: middle;">32.16</td>
+                  <td style="vertical-align: middle;">44.58</td>
+                  <td style="vertical-align: middle;">29.86</td>
+                  <td style="vertical-align: middle;"><b class="">37.72</b></td>
+                </tr>
+
+                <tr>
+                  <td style="vertical-align: middle;"></td>
+                  <td style="text-align: left; padding: 2px 10px;">
+                    <b class="">
+                      <a href="https://arxiv.org/pdf/2403.16276v1/" class="ext-link"
+                        style="font-size: 16px; margin-left: 5px;">AVicuna</a>
+                      <p style="font-size: 12px; margin-left: 5px; color: #858383;">Rochester & Sony</p>
+                    </b>
+                  </td>
+                  <td style="vertical-align: middle;">7B</td>
+                  <td style="vertical-align: middle;">A+V</td>
+                  <td style="vertical-align: middle;">31.62</td>
+                  <td style="vertical-align: middle;">39.00</td>
+                  <td style="vertical-align: middle;">26.09</td>
+                  <td style="vertical-align: middle;">35.21</td>
+                  <td style="vertical-align: middle;">32.81</td>
+                  <td style="vertical-align: middle;">28.19</td>
+                  <td style="vertical-align: middle;">33.73</td>
+                  <td style="vertical-align: middle;">20.83</td>
+                  <td style="vertical-align: middle;"><b class="">30.37</b></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="mt-3">
+            If you want to add your model to our leaderboard, please contact <a
+              href="mailto:jaaackhong@gmail.com">qianchen901005@gmail.com</a>
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DATASET SECTION -->
+  <section class="hero is-light is-small">
+    <div class="hero-body has-text-centered">
+      <h1 class="title is-1 mathvista_other">
+        <span class="mathvista_other" style="vertical-align: middle">FutureOmni</span>
+      </h1>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths" style="width: 100%;">
+          <h2 class="title is-3">Overview </h2>
+          <div class="content has-text-justified">
+            <p style="text-align: center; margin-bottom: -5px;" , class="mt-3">Our FutureOmni have the following five
+              main features:
+            </p>
+            <p style="text-align: center; margin-bottom: 30px; font-weight: bold;" , class="mt-3">
+              (1) First Omni-Modal Forecasting Benchmark, (2) Scalable Construction Pipeline, (3) Comprehensive & Original
+            </p>
+            <p style="text-align: center; margin-bottom: 30px; font-weight: bold;" , class="mt-3">
+              (4) Challenging Evaluation, (5) OFF Training Strategy
+            </p>
+
+            <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+            <!-- </div> -->
+
+            <div class="content has-text-centered">
+
+              <img src="static/images/fig1_right.png" style="width: 70%;" />
+              <p style="margin-bottom: 0px;">Distribution of FutureOmni.
+              </p>
+              <p>(i) Video category hierarchy. (b)  Audio QA Count and Video duration distribution. </p>
+
+            </div>
+
+            <!-- <div class="content has-text-centered">
+              <img src="static/images/static.png" style="width: 70%;" />
+              <p style="margin-bottom: 30px;">sss
+              </p>
+            </div> -->
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths" style="width: 100%;">
+        <h2 class="title is-3" style="margin-top: 30px;">Benchmark Curation</h2>
+
+        <div class="content has-text-centered">
+
+          <img src="static/images/fig1_left.png" style="width: 60%;" />
+          <p style="margin-bottom: 0px;">Data collection and QA annotation pipelines.</p>
+          <!-- <p style="margin-bottom: 30px;">
+            (a) Data collection and curation process. (b) QA annotation and quality control pipeline.
+          </p> -->
+
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths" style="width: 100%;">
+        <h2 class="title is-3" style="margin-top: 30px;">Benchmark Static</h2>
+
+        <div class="content has-text-centered">
+          <img src="static/images/experiments/benchmark_comparison_table.png" style="width: 60%;" />
+          <p style="margin-bottom: 0px;">Static comparison with other benchmarks.</p>
+
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- RESULTS SECTION -->
+  <section class="hero is-light is-small">
+    <div class="hero-body has-text-centered">
+      <h1 class="title is-1 mathvista_other">Experiment Results</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <!-- <div class="columns is-centered m-6"> -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths" style="width: 70%;">
+          <h2 class="title is-3">Overall Performance</h2>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/experiments/category_results.png" alt="overall_performance" width="100%" />
+              <p>Overall performance on our FutureOmni.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths" style="width: 70%;">
+          <h2 class="title is-3">Fine-grained Results</h2>
+          <div class="box m-5">
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="content has-text-centered">
+                <img src="static/images/fine_results_2.png" alt="" width="90%" />
+                <p style="margin-bottom: 30px;">
+                  Fine-grained results on video duration.</p>
+              </div>
+
+              <div class="content has-text-centered">
+                <img src="static/images/fine_results_1.png" alt="" width="85%" />
+                <p style="margin-bottom: 30px;">
+                  Fine-grained results on audio type.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths" style="width: 70%;">
+          <h2 class="title is-3">In-depth Analysis</h2>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/experiments/modality_ablation.png" alt="overall_performance" width="100%" />
+              <p>Impact of vision or audio information.</p>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="hero is-light is-small">
+    <div class="hero-body has-text-centered">
+      <h1 class="title is-1 mathvista_other">Omni-Modal Future Forecasting (OFF) Strategy</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths" style="width: 70%;">
+          <h2 class="title is-3">Fine-grained Performance</h2>
+          <div class="box m-5">
+            <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+              <div class="content has-text-centered">
+                <img src="static/images/experiments/FutureOmni-7k-results.png" alt="generalization-results" width="90%" />
+                <!-- <p style="margin-bottom: 30px;">
+                  Fine-grained results on video duration.</p> -->
+              </div>
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths" style="width: 70%;">
+          <h2 class="title is-3">General Capability</h2>
+          <div class="box m-5">
+            <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+              <div class="content has-text-centered">
+                <img src="static/images/experiments/FutureOmni-7k-generalization-results.png" alt="generalization-results" width="90%" />
+                <!-- <p style="margin-bottom: 30px;">
+                  Fine-grained results on video duration.</p> -->
+              </div>
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths" style="width: 70%;">
+          <h2 class="title is-3">Attention score difference visualization</h2>
+          <div class="box m-5">
+            <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+              <div class="content has-text-centered">
+                <img src="static/images/experiments/keyframe_differences.png" alt="" width="90%" />
+                <p style="margin-bottom: 30px;"> Attention score difference visualization. </p> 
+                <p style="margin-bottom: 30px;"> The blue represents the attention difference for Video keyframes, while the yellow represents Audio keyframes.</p>
+              </div>
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+  </section>
+  
+  <section class="hero is-light is-small">
+    <div class="hero-body has-text-centered">
+      <h1 class="title is-1 mathvista_other" id="citation">Citation</h1>
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <pre><code>
+        @article{hong2025worldsenseevaluatingrealworldomnimodal,
+          title={WorldSense: Evaluating Real-world Omnimodal Understanding for Multimodal LLMs},
+          author={Jack Hong and Shilin Yan and Jiayin Cai and Xiaolong Jiang and Yao Hu and Weidi Xie},
+          year={2025},
+          eprint={2502.04326},
+          archivePrefix={arXiv},
+          primaryClass={cs.CV},
+          url={https://arxiv.org/abs/2502.04326}, 
+        }
+      </code></pre>
+    </div>
+  </section>
+
+
+  <!-- <section class="section">
+    <div class="container" style="width: 60%;">
+      <style>
+        pre {
+          background-color: #f4f4f4;
+          padding: 5px;
+          /* 调整padding为5px */
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          overflow-x: auto;
+          /* 允许水平滚动 */
+        }
+
+        code {
+          font-family: Consolas, "Courier New", monospace;
+          color: #d63384;
+          /* 代码文本颜色 */
+        }
+      </style>
+
+
+    </div>
+  </section> -->
+
+
+  <footer class="footer">
+    <!-- <div class="container"> -->
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p style="text-align: center;">
+            This website is adapted from <a href="https://jaaackhongggg.github.io/WorldSense/">WorldSense</a>, licensed under a <a
+              rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- </div> -->
+  </footer>
+
+</body>
+
+</html>
