@@ -81,7 +81,7 @@ Download the test videos from [huggingface](https://huggingface.co/datasets/Qian
 We offer two implentions. One is using DDP. The example code is in `eval/infer_ddp.py`. Another is using vLLM. The example code is in  `eval/infer_vllm.py`. We strongly recommand preprocess the input feature for speeding up. The feature extraction code is in `feature/extract.py`.
 
 ### 3. Train
-You can download our train videos from  [google drive](https://drive.google.com/drive/folders/1Ao7_nkRZCiwCxnE4bW72c9da-undpcaX?usp=sharing) or baiduyun [TBD]. Adaptation code is in `train/LLaMA-Factory`.
+You can download our train videos from  [google drive](https://drive.google.com/drive/folders/1Ao7_nkRZCiwCxnE4bW72c9da-undpcaX?usp=sharing) or [baiduyun](https://pan.baidu.com/s/1TnjFoE-NZBlRFPtebRiyfg?pwd=8jre). Adaptation code is in `train/LLaMA-Factory`.
 
 ---
 
@@ -103,4 +103,4 @@ TBD
 
 ## 📧 Contact
 
-For any questions, please open an issue or contact [qianchen901005@gmail.com].
+For any questions, please open an issue or contact qianchen901005@gmail.com.
