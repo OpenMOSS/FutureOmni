@@ -1,11 +1,19 @@
 # FutureOmni Evaluation Inference Scripts
 
-This directory contains two inference scripts for evaluating multimodal models (video + audio) on the FutureOmni dataset:
+This directory contains inference scripts for evaluating multimodal models (video + audio) on the FutureOmni dataset. The scripts support both open-source and closed-source models:
+
+## Open-Source Models
 
 1. **`infer_ddp.py`**: Distributed Data Parallel (DDP) inference using PyTorch
 2. **`infer_vllm.py`**: High-performance inference using vLLM
 
 Both scripts support multiple Qwen model variants and can process video-audio multimodal inputs for question-answering tasks.
+
+## Closed-Source Models
+
+3. **`close_source/inference.py`**: Unified inference script for closed-source API-based models (Claude and Gemini)
+
+This script supports commercial API-based models that don't require local model deployment. See the [Closed-Source Models](#closed-source-models) section below for details.
 
 ## Overview
 
@@ -211,6 +219,122 @@ results/
 ```
 
 Each JSON contains the same format as `infer_ddp.py` output.
+
+---
+
+## Closed-Source Models
+
+### `close_source/inference.py` - API-Based Inference
+
+The `close_source/inference.py` script provides a unified interface for evaluating closed-source multimodal models through their APIs. This is useful for comparing against commercial models without requiring local GPU resources or model weights.
+
+#### Supported Providers
+
+- **Claude (Anthropic)**: Supports Claude Sonnet 4, Claude Opus 4, and Claude Haiku 4 models
+- **Gemini (Google)**: Supports Gemini 2.5 Flash, Gemini 2.5 Pro, and Gemini 3 Pro models
+
+#### Key Features
+
+1. **Unified Interface**: Single script for multiple API providers
+2. **Flexible Input**: Supports frame-based (Claude) or video-based (Gemini) inputs
+3. **Audio Support**: Claude models support audio file uploads
+4. **Concurrent Processing**: Multi-threaded processing for Gemini (configurable)
+5. **Resume Capability**: Automatically skips already processed samples
+6. **Error Handling**: Robust error handling with automatic retries
+
+#### Requirements
+
+```bash
+# For Claude
+pip install anthropic
+
+# For Gemini
+pip install requests
+
+# Common dependencies
+pip install tqdm
+```
+
+#### Basic Usage
+
+**Claude:**
+```bash
+python close_source/inference.py --provider claude input.json \
+    --frame_dir ./frames \
+    --audio_dir ./audio \
+    --api_key $ANTHROPIC_API_KEY \
+    --model "claude-sonnet-4-20250514" \
+    --output_dir ./claude_results
+```
+
+**Gemini:**
+```bash
+python close_source/inference.py --provider gemini input.json \
+    --video_dir ./videos \
+    --api_key $GEMINI_API_KEY \
+    --model "gemini-2.5-pro" \
+    --output_dir ./gemini_results \
+    --max_workers 8
+```
+
+#### Command Line Arguments
+
+| Argument | Type | Required | Description |
+|----------|------|----------|-------------|
+| `--provider` | str | Yes | Model provider: `"claude"` or `"gemini"` |
+| `input_file` | str | Yes | Input JSON file path |
+| `--frame_dir` | str | No | Base directory for frames (Claude only, default: `./frames`) |
+| `--audio_dir` | str | No | Base directory for audio (Claude only, default: `./audio`) |
+| `--video_dir` | str | No | Base directory for videos (Gemini only, default: `./videos`) |
+| `--api_key` | str | No | API key (or set `ANTHROPIC_API_KEY`/`GEMINI_API_KEY` env var) |
+| `--base_url` | str | No | Custom base URL for API endpoint |
+| `--model` | str | No | Model name (provider-specific, see defaults below) |
+| `--test_prompt` | str | No | Custom test prompt template |
+| `--output_dir` | str | No | Output directory (default: `./results`) |
+| `--output_file` | str | No | Optional aggregated results file |
+| `--max_items` | int | No | Maximum items to process (for testing) |
+| `--max_workers` | int | No | Concurrent workers for Gemini (default: 1) |
+
+#### Default Models
+
+- **Claude**: `claude-sonnet-4-20250514` (supports audio)
+- **Gemini**: `gemini-2.5-flash`
+
+#### Input Format
+
+The script expects the same JSON format as other inference scripts (see [Input Data Format](#input-data-format) below). For Claude, it uses frame images and optionally audio files. For Gemini, it uses video files directly.
+
+#### Output Format
+
+Results are saved in the output directory with the same format as other inference scripts:
+```
+output_dir/
+├── 0.json
+├── 1.json
+└── ...
+```
+
+Each JSON file contains:
+```json
+{
+    "status": "success",
+    "answer": "A",
+    "qid": 123,
+    "nid": 456,
+    "num_frames": 32,
+    "has_audio": true,
+    "_index": 0
+}
+```
+
+#### Notes
+
+- Claude models require frame extraction and optionally audio extraction beforehand
+- Gemini models work directly with video files (automatically encodes as base64)
+- API rate limits may apply; adjust `--max_workers` accordingly
+- Large video files (>20MB) may cause issues with Gemini's inline method
+
+---
 
 ## Input Data Format
 
@@ -437,6 +561,69 @@ python infer_vllm.py \
 ## License
 
 [Add license information]
+
+## Other Omnimodal Model Repositories
+
+For evaluation on FutureOmni with other state-of-the-art omnimodal models, you may find the following repositories useful:
+
+### [Ola](https://github.com/Ola-Omni/Ola)
+
+**Ola** is an Omni-modal language model that achieves competitive performance across image, video, and audio understanding. It supports simultaneous processing of text, image, video, and audio inputs with competitive performance on understanding tasks for all modalities.
+
+- **Repository**: https://github.com/Ola-Omni/Ola
+- **HuggingFace**: [Ola-7b](https://huggingface.co/THUdyh/Ola-7b), [Ola-Image](https://huggingface.co/THUdyh/Ola-Image), [Ola-Video](https://huggingface.co/THUdyh/Ola-Video)
+- **Key Features**:
+  - Progressive modality alignment training strategy
+  - Supports text, image, video, and audio modalities
+  - Real-time streaming decoding for texts and speeches
+  - 7B parameter model size
+- **Inference**: Use `inference/infer.py` with multiple input types
+- **Paper**: [arXiv:2502.04328](https://arxiv.org/abs/2502.04328)
+
+### [video-SALMONN 2](https://github.com/bytedance/video-SALMONN-2)
+
+**video-SALMONN 2** is a powerful audio-visual large language model that generates high-quality audio-visual video captions, developed by Tsinghua University and ByteDance.
+
+- **Repository**: https://github.com/bytedance/video-SALMONN-2
+- **Key Features**:
+  - Captioning-enhanced audio-visual understanding
+  - Supports video and audio inputs
+  - Generates detailed video captions
+- **Paper**: [arXiv:2506.15220](https://arxiv.org/abs/2506.15220)
+
+### [MiniCPM-o-2.6](https://huggingface.co/openbmb/MiniCPM-o-2_6)
+
+**MiniCPM-o-2.6** is a compact omnimodal model from OpenBMB that supports multiple modalities in a lightweight package.
+
+- **HuggingFace**: https://huggingface.co/openbmb/MiniCPM-o-2_6
+- **Key Features**:
+  - Compact model size (2.6B parameters)
+  - Supports text, image, video, and audio
+  - Efficient inference
+
+### [VideoLLaMA2](https://github.com/DAMO-NLP-SG/VideoLLaMA2)
+
+**VideoLLaMA2** is a video understanding model that extends LLaMA for video-language tasks, developed by Alibaba DAMO Academy.
+
+- **Repository**: https://github.com/DAMO-NLP-SG/VideoLLaMA2
+- **Key Features**:
+  - Video-language understanding
+  - Multi-stage training strategy
+  - Supports video-text tasks
+
+### Integration Notes
+
+To evaluate these models on FutureOmni:
+
+1. **Check Model Compatibility**: Ensure the model supports video + audio inputs (FutureOmni requires both modalities)
+2. **Adapt Input Format**: Convert FutureOmni data format to the model's expected input format
+3. **Feature Extraction**: Some models may require pre-extracted features similar to the Qwen models
+4. **API Integration**: For API-based models, consider using the `close_source/inference.py` pattern
+
+For models that don't natively support the exact FutureOmni format, you may need to:
+- Pre-process videos/frames to match model requirements
+- Adapt prompts to match model instruction format
+- Post-process outputs to extract answers in the expected format (single letter: A-F)
 
 ## Citation
 
