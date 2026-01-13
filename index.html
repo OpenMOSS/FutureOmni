@@ -94,34 +94,35 @@
 
             <div class="is-size-5 publication-authors">
               <span class="author-block">
-                Jack Hong<sup>1</sup>,</span>
+                <a href="https://qq31415926.github.io/cq/">
+                Qian Chen</a><sup>1</sup>,</span>
               <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=2VhjOykAAAAJ&hl=zh-CN&oi=ao">Shilin
-                  Yan</a><sup>1†</sup>,</span>
+                <a href="https://jinlanfu.github.io/">
+                Jinlan Fu</a><sup>3†</sup>,</span>
               <span class="author-block">
-                Jiayin Cai<sup>1</sup>,
+                Changsong Li<sup>1,2</sup>,
               </span>
               <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=G0Ow8j8AAAAJ&hl=zh-CN&oi=ao">Xiaolong
-                  Jiang</a><sup>1</sup>,
+                <a href="https://www.comp.nus.edu.sg/~ngsk/">
+                See-Kiong Ng</a><sup>3</sup>,
               </span>
               <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=LIu7k7wAAAAJ&hl=en">Yao Hu</a><sup>1</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://weidixie.github.io/">Weidi Xie</a><sup>2‡</sup>
+                <!-- <a href="https://weidixie.github.io/">Weidi Xie</a> -->
+                <a href="https://xpqiu.github.io/">
+                Xipeng Qiu</a><sup>1,2†</sup>
               </span>
             </div>
 
             <div class="is-size-5 publication-authors">
-              <span class="author-block"><sup>†</sup>Project Leader</span>
-              <span class="author-block"><sup>‡</sup>Corresponding Author</span>
+              <!-- <span class="author-block"><sup>†</sup>Project Leader</span> -->
+              <span class="author-block"><sup>†</sup>Corresponding Author</span>
             </div>
 
 
             <div class="is-size-5 publication-authors">
-              <span class="author-block"><sup>1</sup>Xiaohongshu Inc.</span>
-              <span class="author-block"><sup>2</sup>Shanghai Jiao Tong University</span>
+              <span class="author-block"><sup>1</sup>Fudan University</span>
+              <span class="author-block"><sup>2</sup>Shanghai Innovation Institute</span>
+              <span class="author-block"><sup>3</sup>National University of Singapore</span>
             </div>
 
 
@@ -146,7 +147,7 @@
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="https://github.com/JaaackHongggg/WorldSense"
+                  <a href="https://github.com/qq31415926/FutureOmni"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -165,7 +166,7 @@
                 </span> -->
                 <!-- Dataset Link. -->
                 <span class="link-block">
-                  <a href="https://huggingface.co/datasets/honglyhly/WorldSense"
+                  <a href="https://huggingface.co/datasets/Qiancccc/FutureOmni"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <!-- <i class="far fa-images"></i> -->
@@ -238,8 +239,7 @@ Evaluations on <b>FutureOmni</b> and popular audio-visual and video-only benchma
 
           <h2 class="title is-3" id="leaderboard">Leaderboard</h2>
           <div class="content">
-            <p class="mt-3">Overall performance on WorldSense. Existing agents demonstrate significant limitations on
-              real-world omnimodal understanding.
+            <p class="mt-3">Overall performance on FutureOmni. Dedicated exclusively to assessing whether models can predict future states based on audio-visual causal logic.
             </p>
 
             <table class="js-sort-table" id="results" style="margin-left: auto; margin-right: auto;">
@@ -731,11 +731,7 @@ Evaluations on <b>FutureOmni</b> and popular audio-visual and video-only benchma
 
           <p class="mt-3">
             If you want to add your model to our leaderboard, please contact <a
-              href="mailto:jaaackhong@gmail.com">jaaackhong@gmail.com</a> and <a
-              href="mailto:tattoo.ysl@gmail.com">tattoo.ysl@gmail.com</a>.
-
-
-
+              href="mailto:jaaackhong@gmail.com">qianchen901005@gmail.com</a>
           </p>
 
         </div>
@@ -760,11 +756,14 @@ Evaluations on <b>FutureOmni</b> and popular audio-visual and video-only benchma
         <div class="column is-four-fifths" style="width: 100%;">
           <h2 class="title is-3">Overview </h2>
           <div class="content has-text-justified">
-            <p style="text-align: center; margin-bottom: -5px;" , class="mt-3">Our WorldSense have the following three
+            <p style="text-align: center; margin-bottom: -5px;" , class="mt-3">Our FutureOmni have the following five
               main features:
             </p>
             <p style="text-align: center; margin-bottom: 30px; font-weight: bold;" , class="mt-3">
-              (1) Collaboration of Omni-Modality, (2) Diversity of Videos and Tasks, (3) High-Quality Annotations.
+              (1) First Omni-Modal Forecasting Benchmark, (2) Scalable Construction Pipeline, (3) Comprehensive & Original
+            </p>
+            <p style="text-align: center; margin-bottom: 30px; font-weight: bold;" , class="mt-3">
+              (4) Challenging Evaluation, (5) OFF Training Strategy
             </p>
 
             <!-- <div id="results-carousel" class="carousel results-carousel"> -->
@@ -773,10 +772,9 @@ Evaluations on <b>FutureOmni</b> and popular audio-visual and video-only benchma
             <div class="content has-text-centered">
 
               <img src="static/images/fig1_right.png" style="width: 70%;" />
-              <p style="margin-bottom: 0px;">Distribution of WorldSense.
+              <p style="margin-bottom: 0px;">Distribution of FutureOmni.
               </p>
-              <p>(a) Video category hierarchy. (b) Task distribution. (c) Acoustic signals distribution. (d) Video
-                duration distribution. </p>
+              <p>(i) Video category hierarchy. (ii)  Audio QA Count and Video duration distribution. </p>
 
             </div>
 
@@ -800,9 +798,9 @@ Evaluations on <b>FutureOmni</b> and popular audio-visual and video-only benchma
 
           <img src="static/images/fig1_left.png" style="width: 60%;" />
           <p style="margin-bottom: 0px;">Data collection and QA annotation pipelines.</p>
-          <p style="margin-bottom: 30px;">
+          <!-- <p style="margin-bottom: 30px;">
             (a) Data collection and curation process. (b) QA annotation and quality control pipeline.
-          </p>
+          </p> -->
 
         </div>
       </div>
@@ -840,7 +838,7 @@ Evaluations on <b>FutureOmni</b> and popular audio-visual and video-only benchma
           <div class="box m-5">
             <div class="content has-text-centered">
               <img src="static/images/experiments/category_results.png" alt="overall_performance" width="100%" />
-              <p>Overall performance on our WorldSense.</p>
+              <p>Overall performance on our FutureOmni.</p>
             </div>
           </div>
         </div>
@@ -850,20 +848,20 @@ Evaluations on <b>FutureOmni</b> and popular audio-visual and video-only benchma
         <div class="column is-four-fifths" style="width: 70%;">
           <h2 class="title is-3">Fine-grained Results</h2>
           <div class="box m-5">
-            <div id="results-carousel" class="carousel results-carousel">
+            <!-- <div id="results-carousel" class="carousel results-carousel"> -->
               <div class="content has-text-centered">
-                <img src="static/images/fine_results_2.png" alt="" width="90%" />
+                <img src="static/images/fine_results_2.png" alt="" width="100%" />
                 <p style="margin-bottom: 30px;">
                   Fine-grained results on video duration.</p>
               </div>
 
               <div class="content has-text-centered">
-                <img src="static/images/fine_results_1.png" alt="" width="85%" />
+                <img src="static/images/fine_results_1.png" alt="" width="100%" />
                 <p style="margin-bottom: 30px;">
                   Fine-grained results on audio type.
                 </p>
               </div>
-            </div>
+            <!-- </div> -->
           </div>
         </div>
       </div>
@@ -886,7 +884,79 @@ Evaluations on <b>FutureOmni</b> and popular audio-visual and video-only benchma
   </section>
 
 
+  <section class="hero is-light is-small">
+    <div class="hero-body has-text-centered">
+      <h1 class="title is-1 mathvista_other">Omni-Modal Future Forecasting (OFF) Strategy</h1>
+    </div>
   </section>
+
+  <section class="section">
+    <div class="container">
+      
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths" style="width: 70%;">
+          <h2 class="title is-3">Fine-grained Audio Performance</h2>
+          <div class="box m-5">
+            <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+              <div class="content has-text-centered">
+                <img src="static/images/experiments/FutureOmni-7k-results.png" alt="generalization-results" width="90%" />
+                <!-- <p style="margin-bottom: 30px;">
+                  Fine-grained results on video duration.</p> -->
+              </div>
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths" style="width: 70%;">
+          <h2 class="title is-3">Fine-grained Duration Performance</h2>
+          <div class="box m-5">
+            <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+              <div class="content has-text-centered">
+                <img src="static/images/experiments/FutureOmni-7k-results-duration.png" alt="generalization-results" width="90%" />
+                <!-- <p style="margin-bottom: 30px;">
+                  Fine-grained results on video duration.</p> -->
+              </div>
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths" style="width: 70%;">
+          <h2 class="title is-3">General Capability</h2>
+          <div class="box m-5">
+            <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+              <div class="content has-text-centered">
+                <img src="static/images/experiments/FutureOmni-7k-results-generalization-results.png" alt="generalization-results" width="90%" />
+                <!-- <p style="margin-bottom: 30px;">
+                  Fine-grained results on video duration.</p> -->
+              </div>
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths" style="width: 70%;">
+          <h2 class="title is-3">Attention score difference visualization</h2>
+          <div class="box m-5">
+            <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+              <div class="content has-text-centered">
+                <img src="static/images/experiments/keyframe_differences.png" alt="" width="90%" />
+                <p style="margin-bottom: 30px;"> Attention score difference visualization. </p> 
+                <p style="margin-bottom: 30px;"> The blue represents the attention difference for Video keyframes, while the yellow represents Audio keyframes.</p>
+              </div>
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+  </section>
+  
   <section class="hero is-light is-small">
     <div class="hero-body has-text-centered">
       <h1 class="title is-1 mathvista_other" id="citation">Citation</h1>
@@ -943,7 +1013,7 @@ Evaluations on <b>FutureOmni</b> and popular audio-visual and video-only benchma
       <div class="column is-8">
         <div class="content">
           <p style="text-align: center;">
-            This website is adapted from <a href="https://mathvista.github.io/">MathVista</a>, licensed under a <a
+            This website is adapted from <a href="https://jaaackhongggg.github.io/WorldSense/">WorldSense</a>, licensed under a <a
               rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
               Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
