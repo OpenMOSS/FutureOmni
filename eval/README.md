@@ -586,6 +586,22 @@ For evaluation on FutureOmni with other state-of-the-art omnimodal models, you m
   - Multiple model sizes (7B, 13B variants)
 - **Inference**: Use `llava/eval/` scripts for evaluation
 - **Paper**: [arXiv:2310.03744](https://arxiv.org/abs/2310.03744) (LLaVA-1.6)
+
+### [Video-LLaVA](https://github.com/PKU-YuanGroup/Video-LLaVA)
+
+**Video-LLaVA** is a video-language model that learns united visual representation by alignment before projection, developed by PKU YuanGroup. It extends LLaVA's capabilities to video understanding while maintaining efficient image understanding.
+
+- **Repository**: https://github.com/PKU-YuanGroup/Video-LLaVA
+- **HuggingFace**: [LanguageBind/Video-LLaVA-7B-hf](https://huggingface.co/LanguageBind/Video-LLaVA-7B-hf)
+- **Key Features**:
+  - Unified visual representation learning through alignment before projection
+  - Supports both image and video understanding
+  - Built on LLaVA architecture
+  - Efficient video-language pretraining
+  - EMNLP 2024 publication
+- **Inference**: Use `videollava/model/builder.py` for loading models and inference
+- **Paper**: [arXiv:2311.10122](https://arxiv.org/abs/2311.10122)
+
 ### [AVicuna](https://arxiv.org/abs/2403.16276)
 
 **AVicuna** is an audio-visual large language model framework that enables fine-grained temporal understanding in untrimmed videos. It empowers LLMs to align time, audio-visual events, and language by training on large-scale pseudo-untrimmed videos with precise temporal annotations.
