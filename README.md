@@ -121,7 +121,7 @@ To mitigate current limitations, we curate a **7K-sample instruction-tuning data
 
 <div align="center">
     <img src="./static/images/experiments/FutureOmni-7k-results-duration.png" 
-              style="max-width: 100%; height: auto;" 
+    style="max-width: 100%; height: auto;" 
     >
     <p>Fine-grained Video Category Performance</p>
 </div>
