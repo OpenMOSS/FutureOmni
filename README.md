@@ -97,7 +97,7 @@ We conduct extensive evaluations on **13 omni-modal** and **7 video-only** model
 
 ### 🧠 In-depth Analysis
 <div align="center">
-    <img src="./static/images/experiments/modality_ablation.png" width="100%" alt="">
+    <img src="./static/images/experiments/modality_ablation_2.png" width="100%" alt="">
     <p>Impact of Vision or Audio Information</p>
 </div>
 
@@ -115,7 +115,7 @@ We conduct extensive evaluations on **13 omni-modal** and **7 video-only** model
 </div>
 
 <div align="center">
-    <img src="./static/images/experiments/FutureOmni-7k-generalization-results.png" width="100%" alt="">
+    <img src="./static/images/experiments/FutureOmni-7k-results-generalization-results.png" width="100%" alt="">
     <p>General Capability</p>
 </div>
 
