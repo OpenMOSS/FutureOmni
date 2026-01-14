@@ -5,9 +5,10 @@
 
 # FutureOmni: Evaluating Future Forecasting from Omni-Modal Context for Multimodal LLMs
 
+[![Project Page](https://img.shields.io/badge/Project-Page-blue)](https://qq31415926.github.io/FutureOmni/)
 [![Paper](https://img.shields.io/badge/Paper-Arxiv-red)](LINK_TO_YOUR_ARXIV)
 [![Dataset](https://img.shields.io/badge/Dataset-HuggingFace-yellow)](https://huggingface.co/datasets/Qiancccc/FutureOmni)
-[![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey)](LICENSE)
+
 
 </div>
 
@@ -44,7 +45,12 @@ Although Multimodal Large Language Models (MLLMs) demonstrate strong omni-modal 
 | *GPT-4o* | - | 54.41 | 59.80 | 45.05 | 52.29 |
 
 ---
+## 🌰 Data Example
+<div align="center">
+    <img src="./static/images/intro.png" width="100%">
+</div>
 
+---
 ## 📂 Data Format
 
 Each entry in the annotation file is formatted as follows:
@@ -70,12 +76,55 @@ Each entry in the annotation file is formatted as follows:
 ```
 
 ---
+## 🧪 Experiments
+We conduct extensive evaluations on **13 omni-modal** and **7 video-only** models.
 
+### Overall Performance
+<div align="center">
+    <img src="./static/images/experiments/category_results.png" width="100%">
+    <p>Overall Performance on Categories</p>
+</div>
+
+### 🔍 Fine-grained Results
+<div align="center">
+    <img src="./static/images/fine_results_1.png" width="100%" alt="">
+    <p>Fine-grained Results on Audio Type</p>
+</div>
+<div align="center">
+    <img src="./static/images/fine_results_2.png" width="100%" alt="">
+    <p>Fine-grained Results on Video Duration</p>
+</div>
+
+### 🧠 In-depth Analysis
+<div align="center">
+    <img src="./static/images/experiments/modality_ablation.png" width="100%" alt="">
+    <p>Impact of Vision or Audio Information</p>
+</div>
+
+---
+
+## 🚀 Omni-Modal Future Forecasting (OFF) Strategy
+<div align="center">
+    <img src="./static/images/experiments/FutureOmni-7k-results.png" width="100%" alt="">
+    <p>Fine-grained Audio Performance</p>
+</div>
+
+<div align="center">
+    <img src="./static/images/experiments/FutureOmni-7k-results-duration.png" width="100%" alt="">
+    <p>Fine-grained Video Category Performance</p>
+</div>
+
+<div align="center">
+    <img src="./static/images/experiments/FutureOmni-7k-generalization-results.png" width="100%" alt="">
+    <p>General Capability</p>
+</div>
+
+---
 ## 🛠️ Quick Start
 
 
 ### 1. Prepare Data
-Download the test videos from [huggingface](https://huggingface.co/datasets/Qiancccc/FutureOmni) and extract them into the `videos/` folder.
+Download the test videos (splitted) from [huggingface](https://huggingface.co/datasets/Qiancccc/FutureOmni) and extract them into the `videos/` folder.
 
 ### 2. Evaluation
 We offer two implentions. One is using DDP. The example code is in `eval/infer_ddp.py`. Another is using vLLM. The example code is in  `eval/infer_vllm.py`. We strongly recommand preprocess the input feature for speeding up. The feature extraction code is in `feature/extract.py`.
