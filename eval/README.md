@@ -230,8 +230,9 @@ The `close_source/inference.py` script provides a unified interface for evaluati
 
 #### Supported Providers
 
-- **Claude (Anthropic)**: Supports Claude Sonnet 4, Claude Opus 4, and Claude Haiku 4 models
-- **Gemini (Google)**: Supports Gemini 2.5 Flash/Pro, and Gemini 3 Falsh/Pro models
+- **Claude (Anthropic)**: Supports Claude Haiku 4 models
+- **Gemini (Google)**: Supports Gemini 2.5 Flash/Pro, and Gemini 3 Flash/Pro models
+- **GPT-4o (OpenAI)**: Supports GPT-4o
 
 #### Key Features
 
@@ -281,12 +282,12 @@ python close_source/inference.py --provider gemini input.json \
 
 | Argument | Type | Required | Description |
 |----------|------|----------|-------------|
-| `--provider` | str | Yes | Model provider: `"claude"` or `"gemini"` |
+| `--provider` | str | Yes | Model provider: `"claude"`, `"gemini"`, or `"gpt4o"` |
 | `input_file` | str | Yes | Input JSON file path |
 | `--frame_dir` | str | No | Base directory for frames (Claude only, default: `./frames`) |
 | `--audio_dir` | str | No | Base directory for audio (Claude only, default: `./audio`) |
-| `--video_dir` | str | No | Base directory for videos (Gemini only, default: `./videos`) |
-| `--api_key` | str | No | API key (or set `ANTHROPIC_API_KEY`/`GEMINI_API_KEY` env var) |
+| `--video_dir` | str | No | Base directory for videos (Gemini/GPT-4o, default: `./videos`) |
+| `--api_key` | str | No | API key (or set `ANTHROPIC_API_KEY`/`GEMINI_API_KEY`/`OPENAI_API_KEY` env var) |
 | `--base_url` | str | No | Custom base URL for API endpoint |
 | `--model` | str | No | Model name (provider-specific, see defaults below) |
 | `--test_prompt` | str | No | Custom test prompt template |
@@ -297,8 +298,9 @@ python close_source/inference.py --provider gemini input.json \
 
 #### Default Models
 
-- **Claude**: `claude-haiku-4.5` (supports audio)
-- **Gemini**: `gemini-2.5-flash`
+- **Claude**: `claude-haiku-4.5` (supports video and audio)
+- **Gemini**: `gemini-2.5-flash` (supports video and audio)
+- **GPT-4o**: `gpt-4o` (supports video)
 
 #### Input Format
 
@@ -331,8 +333,10 @@ Each JSON file contains:
 
 - Claude models require frame extraction and optionally audio extraction beforehand
 - Gemini models work directly with video files (automatically encodes as base64)
+- GPT-4o supports direct video inputs via API
 - API rate limits may apply; adjust `--max_workers` accordingly
 - Large video files (>20MB) may cause issues with Gemini's inline method
+- GPT-4o has specific file size and format requirements; check OpenAI documentation for details
 
 ---
 
@@ -544,6 +548,20 @@ For evaluation on FutureOmni with other state-of-the-art omnimodal models, you m
   - Supports text, image, video, and audio
   - Efficient inference
 
+### [VideoLLaMA3](https://github.com/DAMO-NLP-SG/VideoLLaMA3)
+
+**VideoLLaMA3** is a frontier multimodal foundation model for image and video understanding, developed by Alibaba DAMO Academy. It represents the latest iteration of the VideoLLaMA series with improved performance.
+
+- **Repository**: https://github.com/DAMO-NLP-SG/VideoLLaMA3
+- **HuggingFace**: [VideoLLaMA3-7B](https://huggingface.co/DAMO-NLP-SG/VideoLLaMA3-7B)
+- **Key Features**:
+  - Multimodal foundation model for image and video understanding
+  - Supports both image and video inputs
+  - Improved spatial-temporal modeling
+  - Multi-stage training strategy
+- **Inference**: Use `inference/` scripts for evaluation
+- **Paper**: [arXiv:2501.13106](https://arxiv.org/abs/2501.13106)
+
 ### [VideoLLaMA2](https://github.com/DAMO-NLP-SG/VideoLLaMA2)
 
 **VideoLLaMA2** is a video understanding model that extends LLaMA for video-language tasks, developed by Alibaba DAMO Academy.
@@ -553,6 +571,21 @@ For evaluation on FutureOmni with other state-of-the-art omnimodal models, you m
   - Video-language understanding
   - Multi-stage training strategy
   - Supports video-text tasks
+- **Paper**: [arXiv:2406.07476](https://arxiv.org/abs/2406.07476)
+
+### [LLaVA-NeXT](https://github.com/LLaVA-VL/LLaVA-NeXT)
+
+**LLaVA-NeXT** (also known as LLaVA-1.6) is the next-generation Large Language and Vision Assistant that improves upon the original LLaVA model with enhanced vision-language capabilities and better multimodal understanding.
+
+- **Repository**: https://github.com/LLaVA-VL/LLaVA-NeXT
+- **HuggingFace**: [llava-v1.6-vicuna-7b](https://huggingface.co/liuhaotian/llava-v1.6-vicuna-7b), [llava-v1.6-vicuna-13b](https://huggingface.co/liuhaotian/llava-v1.6-vicuna-13b)
+- **Key Features**:
+  - Enhanced vision-language understanding
+  - Support for high-resolution images
+  - Improved instruction following
+  - Multiple model sizes (7B, 13B variants)
+- **Inference**: Use `llava/eval/` scripts for evaluation
+- **Paper**: [arXiv:2310.03744](https://arxiv.org/abs/2310.03744) (LLaVA-1.6)
 ### [AVicuna](https://arxiv.org/abs/2403.16276)
 
 **AVicuna** is an audio-visual large language model framework that enables fine-grained temporal understanding in untrimmed videos. It empowers LLMs to align time, audio-visual events, and language by training on large-scale pseudo-untrimmed videos with precise temporal annotations.
