@@ -97,8 +97,10 @@ We conduct extensive evaluations on **13 omni-modal** and **7 video-only** model
 
 ### 🧠 In-depth Analysis
 <div align="center">
-    <img src="./static/images/experiments/modality_ablation_2.png" width="100%" alt="">
-    <p>Impact of Vision or Audio Information</p>
+    <img src="./static/images/experiments/modality_ablation.png"
+        style="max-width: 100%; height: auto;" 
+     >
+    <p>Modality Ablation Results</p>
 </div>
 
 ---
@@ -111,17 +113,23 @@ To mitigate current limitations, we curate a **7K-sample instruction-tuning data
 **Key Finding:** Evaluations on **FutureOmni** and popular audio-visual (e.g., WorldSense, DailyOmni) and video-only (e.g., Video-MME) benchmarks demonstrate that the **OFF** strategy significantly enhances both future forecasting and general perception.
 
 <div align="center">
-    <img src="./static/images/experiments/FutureOmni-7k-results.png" width="100%" alt="">
+    <img src="./static/images/experiments/FutureOmni-7k-results.png" 
+    style="max-width: 70%; height: auto;" 
+    >
     <p>Fine-grained Audio Performance</p>
 </div>
 
 <div align="center">
-    <img src="./static/images/experiments/FutureOmni-7k-results-duration.png" width="100%" alt="">
+    <img src="./static/images/experiments/FutureOmni-7k-results-duration.png" 
+              style="max-width: 100%; height: auto;" 
+    >
     <p>Fine-grained Video Category Performance</p>
 </div>
 
 <div align="center">
-    <img src="./static/images/experiments/FutureOmni-7k-results-generalization-results.png" width="100%" alt="">
+    <img src="./static/images/experiments/FutureOmni-7k-results-generalization-results.png" 
+              style="max-width: 100%; height: auto;" 
+    >
     <p>General Capability</p>
 </div>
 
@@ -138,6 +146,11 @@ We offer two implentions. One is using DDP. The example code is in `eval/infer_d
 ### 3. Train
 You can download our train videos from  [google drive](https://drive.google.com/drive/folders/1Ao7_nkRZCiwCxnE4bW72c9da-undpcaX?usp=sharing) or [baiduyun](https://pan.baidu.com/s/1TnjFoE-NZBlRFPtebRiyfg?pwd=8jre). Adaptation code is in `train/LLaMA-Factory`.
 
+---
+
+## 📧 Contact
+
+For any questions, please open an issue or contact qianchen901005@gmail.com.
 
 ---
 
@@ -146,9 +159,10 @@ You can download our train videos from  [google drive](https://drive.google.com/
 If you find FutureOmni useful for your research, please cite our paper:
 
 ```bibtex
-TBD
+@article{chen2026futureomni,
+    title={FutureOmni: Evaluating Future Forecasting from Omni-Modal Context for Multimodal LLMs},
+    author={Chen, Qian and Fu, Jinlan and Li, Changsong, and Ng, See-Kiong and Qiu, Xipeng},
+    journal={To be updated},
+    year={2026}
+}
 ```
-
-## 📧 Contact
-
-For any questions, please open an issue or contact qianchen901005@gmail.com.
