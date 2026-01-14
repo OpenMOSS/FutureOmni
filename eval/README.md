@@ -509,6 +509,18 @@ python infer_vllm.py \
 
 For evaluation on FutureOmni with other state-of-the-art omnimodal models, you may find the following repositories useful:
 
+### [AVicuna](https://arxiv.org/abs/2403.16276)
+
+**AVicuna** is an audio-visual large language model framework that enables fine-grained temporal understanding in untrimmed videos. It empowers LLMs to align time, audio-visual events, and language by training on large-scale pseudo-untrimmed videos with precise temporal annotations.
+
+- **Repository**: https://github.com/yunlong10/AVicuna
+- **Key Features**:
+  - Pseudo-untrimmed video generation from trimmed clips
+  - Audio-Visual Token Interleaver for temporal synchronization
+  - Progressive multi-stage modality and time-event alignment training
+  - Supports joint audio, video, and text reasoning
+- **Paper**: [[arXiv:2502.04328](https://arxiv.org/abs/2502.04328)]
+
 ### [Ola](https://github.com/Ola-Omni/Ola)
 
 **Ola** is an Omni-modal language model that achieves competitive performance across image, video, and audio understanding. It supports simultaneous processing of text, image, video, and audio inputs with competitive performance on understanding tasks for all modalities.
