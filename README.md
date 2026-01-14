@@ -39,7 +39,7 @@ Although Multimodal Large Language Models (MLLMs) demonstrate strong omni-modal 
 | **Gemini 3 Flash** 🏆 | - | 60.52 | 67.13 | 68.31 | **64.80** |
 | **Gemini 2.5 Pro** | - | 48.23 | 61.89 | 63.38 | **56.77** |
 | **Qwen3-Omni** | 30B | 47.99 | 55.44 | 57.54 | **53.05** |
-| **Claude 3.5 Sonnet** | - | 55.56 | 64.00 | 43.82 | **51.52** |
+| **Claude Haiku 4.5** | - | 55.56 | 64.00 | 43.82 | **51.52** |
 | **Video-SALMONN 2** | 7B | 40.28 | 48.95 | 54.15 | **47.00** |
 | **Qwen2.5-Omni** | 7B | 37.83 | 54.55 | 53.85 | **47.48** |
 | *GPT-4o* | - | 54.41 | 59.80 | 45.05 | 52.29 |
@@ -103,7 +103,13 @@ We conduct extensive evaluations on **13 omni-modal** and **7 video-only** model
 
 ---
 
+
 ## 🚀 Omni-Modal Future Forecasting (OFF) Strategy
+
+To mitigate current limitations, we curate a **7K-sample instruction-tuning dataset**.
+
+**Key Finding:** Evaluations on **FutureOmni** and popular audio-visual (e.g., WorldSense, DailyOmni) and video-only (e.g., Video-MME) benchmarks demonstrate that the **OFF** strategy significantly enhances both future forecasting and general perception.
+
 <div align="center">
     <img src="./static/images/experiments/FutureOmni-7k-results.png" width="100%" alt="">
     <p>Fine-grained Audio Performance</p>
@@ -132,13 +138,6 @@ We offer two implentions. One is using DDP. The example code is in `eval/infer_d
 ### 3. Train
 You can download our train videos from  [google drive](https://drive.google.com/drive/folders/1Ao7_nkRZCiwCxnE4bW72c9da-undpcaX?usp=sharing) or [baiduyun](https://pan.baidu.com/s/1TnjFoE-NZBlRFPtebRiyfg?pwd=8jre). Adaptation code is in `train/LLaMA-Factory`.
 
----
-
-## 📈 Omni-Modal Future Forecasting (OFF) Strategy
-
-To mitigate current limitations, we curate a **7K-sample instruction-tuning dataset**.
-
-**Key Finding:** Evaluations on **FutureOmni** and popular audio-visual (e.g., WorldSense, DailyOmni) and video-only (e.g., Video-MME) benchmarks demonstrate that the **OFF** strategy significantly enhances both future forecasting and general perception.
 
 ---
 
