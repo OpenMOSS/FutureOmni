@@ -231,7 +231,7 @@ The `close_source/inference.py` script provides a unified interface for evaluati
 #### Supported Providers
 
 - **Claude (Anthropic)**: Supports Claude Sonnet 4, Claude Opus 4, and Claude Haiku 4 models
-- **Gemini (Google)**: Supports Gemini 2.5 Flash, Gemini 2.5 Pro, and Gemini 3 Pro models
+- **Gemini (Google)**: Supports Gemini 2.5 Flash/Pro, and Gemini 3 Falsh/Pro models
 
 #### Key Features
 
@@ -263,7 +263,7 @@ python close_source/inference.py --provider claude input.json \
     --frame_dir ./frames \
     --audio_dir ./audio \
     --api_key $ANTHROPIC_API_KEY \
-    --model "claude-sonnet-4-20250514" \
+    --model "claude-haiku-4.5" \
     --output_dir ./claude_results
 ```
 
@@ -297,7 +297,7 @@ python close_source/inference.py --provider gemini input.json \
 
 #### Default Models
 
-- **Claude**: `claude-sonnet-4-20250514` (supports audio)
+- **Claude**: `claude-haiku-4.5` (supports audio)
 - **Gemini**: `gemini-2.5-flash`
 
 #### Input Format
@@ -387,8 +387,8 @@ The scripts use predefined prompts for different scenarios:
 ### Supported Models
 
 #### Multimodal (Video + Audio)
-- **Qwen2.5-Omni**: `Qwen2.5-Omni-7B`, `Qwen2.5-Omni-32B`
-- **Qwen3-Omni**: `Qwen3-Omni-MoE-A14.5B`, etc.
+- **Qwen2.5-Omni**: `Qwen2.5-Omni-7B`
+- **Qwen3-Omni**: `Qwen3-Omni-30B-A3B`, etc.
 
 #### Vision-Language (Video Only)
 - **Qwen2.5-VL**: `Qwen/Qwen2.5-VL-7B-Instruct`
@@ -431,61 +431,6 @@ All models use Flash Attention 2 for efficiency.
 3. **GPU Memory**: Set `gpu_memory_utilization=0.95` (default) or lower if needed
 4. **Feature Pre-extraction**: Pre-extract features for faster inference
 
-## Troubleshooting
-
-### Common Issues
-
-#### 1. Import Errors
-
-**Problem**: `ModuleNotFoundError: No module named 'qwen_omni_utils'`
-
-**Solution**: Ensure utility modules are in Python path:
-```bash
-export PYTHONPATH="${PYTHONPATH}:/path/to/SILVR/FutureOmni"
-```
-
-#### 2. DDP Initialization Failed
-
-**Problem**: `NCCL error` or `init_process_group failed`
-
-**Solution**:
-- Ensure NCCL is properly installed
-- Check network connectivity between nodes
-- Verify `CUDA_VISIBLE_DEVICES` is not set when using DDP
-
-#### 3. Out of Memory (OOM)
-
-**Solution**:
-- Reduce `batch_size`
-- Reduce `max_frames` (fewer frames per video)
-- Use gradient checkpointing (if training)
-- Process in smaller chunks using `--sid` and multiple runs
-
-#### 4. Video Processing Errors
-
-**Problem**: `Cannot open video` or `Invalid video format`
-
-**Solution**:
-- Verify video file paths are correct
-- Check video codec compatibility (H.264, H.265 recommended)
-- Ensure OpenCV can read the videos
-
-#### 5. Feature Loading Errors
-
-**Problem**: `FileNotFoundError` for `.pt` files
-
-**Solution**:
-- Pre-extract features using feature extraction scripts
-- Or remove `--feature_dir` to process videos on-the-fly
-
-#### 6. vLLM Compatibility
-
-**Problem**: `vLLM doesn't support Qwen Omni`
-
-**Solution**:
-- Ensure you have a custom vLLM build with Qwen Omni support
-- Check `vllm/model_executor/models/` for `qwen2_5_omni_thinker.py`
-- May need to build vLLM from source with custom model support
 
 ## Differences Between Scripts
 
@@ -501,7 +446,7 @@ export PYTHONPATH="${PYTHONPATH}:/path/to/SILVR/FutureOmni"
 
 ## Example Workflows
 
-### Workflow 1: Research Evaluation (DDP)
+### Workflow 1: DDP
 
 ```bash
 # Extract features first (optional but recommended)
@@ -516,7 +461,7 @@ torchrun --nproc_per_node=4 infer_ddp.py \
     --model_type "qwen2_5omni"
 ```
 
-### Workflow 2: Large-Scale Evaluation (vLLM)
+### Workflow 2: vLLM
 
 ```bash
 # Extract features
@@ -558,9 +503,7 @@ python infer_vllm.py \
 - Results can be aggregated and evaluated using separate evaluation scripts
 - The `VideoDataset` class in `infer_ddp.py` has a reference to `self.mode` that should be initialized if using caption/subtitle modes
 
-## License
 
-[Add license information]
 
 ## Other Omnimodal Model Repositories
 
@@ -593,11 +536,11 @@ For evaluation on FutureOmni with other state-of-the-art omnimodal models, you m
 
 ### [MiniCPM-o-2.6](https://huggingface.co/openbmb/MiniCPM-o-2_6)
 
-**MiniCPM-o-2.6** is a compact omnimodal model from OpenBMB that supports multiple modalities in a lightweight package.
+**MiniCPM-o-2.6** is a streaming omnimodal model from OpenBMB that supports multiple modalities.
 
 - **HuggingFace**: https://huggingface.co/openbmb/MiniCPM-o-2_6
 - **Key Features**:
-  - Compact model size (2.6B parameters)
+  - Compact model size (8B parameters)
   - Supports text, image, video, and audio
   - Efficient inference
 
@@ -610,6 +553,17 @@ For evaluation on FutureOmni with other state-of-the-art omnimodal models, you m
   - Video-language understanding
   - Multi-stage training strategy
   - Supports video-text tasks
+### [AVicuna](https://arxiv.org/abs/2403.16276)
+
+**AVicuna** is an audio-visual large language model framework that enables fine-grained temporal understanding in untrimmed videos. It empowers LLMs to align time, audio-visual events, and language by training on large-scale pseudo-untrimmed videos with precise temporal annotations.
+
+- **Repository**: https://github.com/yunlong10/AVicuna
+- **Key Features**:
+  - Pseudo-untrimmed video generation from trimmed clips
+  - Audio-Visual Token Interleaver for temporal synchronization
+  - Progressive multi-stage modality and time-event alignment training
+  - Supports joint audio, video, and text reasoning
+- **Paper**: [[arXiv:2502.04328](https://arxiv.org/abs/2502.04328)]
 
 ### Integration Notes
 
