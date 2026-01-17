@@ -162,7 +162,7 @@ If you find FutureOmni useful for your research, please cite our paper:
 @article{chen2026futureomni,
     title={FutureOmni: Evaluating Future Forecasting from Omni-Modal Context for Multimodal LLMs},
     author={Chen, Qian and Fu, Jinlan and Li, Changsong, and Ng, See-Kiong and Qiu, Xipeng},
-    journal={To be updated},
+    booktitle={arXiv},
     year={2026}
 }
 ```
