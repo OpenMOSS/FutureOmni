@@ -47,9 +47,11 @@ Although Multimodal Large Language Models (MLLMs) demonstrate strong omni-modal 
 ---
 ## 🌰 Data Example
 
-<div style="text-align: center;">
-  <video src="./asset/example.mp4" width="800" controls></video>
-</div>
+
+https://github.com/user-attachments/assets/95df7ae7-67e8-482b-a04e-2134d68be117
+
+
+
 <div align="center">
     <img src="./static/images/intro.png" width="100%">
 </div>
