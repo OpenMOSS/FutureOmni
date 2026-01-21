@@ -44,7 +44,6 @@ pip install opencv-python
 
 ### For `infer_ddp.py`
 
-- PyTorch with NCCL backend (for multi-GPU)
 - Flash Attention 2 (recommended)
 
 ### For `infer_vllm.py`

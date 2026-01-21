@@ -269,7 +269,6 @@ python feature_extractor.py ... --debug --qid 0
 ## Dependencies on Utilities
 
 This script requires utility functions from `utils.py`:
-- `trans_seconds`: Time format conversion
 - `trans_seconds2`: Alternative time format conversion
 - `trans2seconds`: Seconds conversion (from `utils.constructor`)
 

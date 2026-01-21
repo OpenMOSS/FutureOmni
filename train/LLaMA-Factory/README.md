@@ -1,5 +1,6 @@
 # LlamaFactory Modified Version
-This repository contains modified files based on [LlamaFactory](https://github.com/hiyouga/LlamaFactory) (Apache 2.0 License), focusing on streaming preprocessed dataset and load extracted feature.
+This repository contains modified files based on [LlamaFactory](https://github.com/hiyouga/LlamaFactory) (Apache 2.0 License), 
+focusing on streaming preprocessed dataset and load extracted feature.
 
 ## Key Modifications
 | File Path | Modification Description |
