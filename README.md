@@ -6,7 +6,7 @@
 # FutureOmni: Evaluating Future Forecasting from Omni-Modal Context for Multimodal LLMs
 
 [![Project Page](https://img.shields.io/badge/Project-Page-blue)](https://openmoss.github.io/FutureOmni/)
-[![Paper](https://img.shields.io/badge/Paper-Arxiv-red)](https://github.com/OpenMOSS/FutureOmni/blob/main/moss_version.pdf)
+[![Paper](https://img.shields.io/badge/Paper-Arxiv-red)](https://arxiv.org/abs/2601.13836)
 [![Dataset](https://img.shields.io/badge/Dataset-HuggingFace-yellow)](https://huggingface.co/datasets/OpenMOSS-Team/FutureOmni)
 
 
