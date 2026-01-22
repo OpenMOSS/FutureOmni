@@ -79,28 +79,19 @@ class VideoDataset(Dataset):
             prompt = 'Question: {}\nAnswer: '.format(question_str)
 
 
-            if self.mode == 'caption':
-                caption = item['caption']
-                prompt = f'Caption:{caption}' + prompt
-            elif self.mode == 'subtitle':
-                subtitle = item['subtitle']
-                prompt = f'Subtitle:{subtitle}' + prompt
+
                 
                 
             
             message.append(dict(type='text', value=prompt))
-            if self.model_type == 'qwen2_5omni':
+            
+            # Use qid to construct video path for futureomni dataset
+            video_path = f"{self.root}/{qid}.mp4"
+            message.append(dict(type='video', value=video_path))
+            if self.model_type == "qwen2_5omni" or self.model_type == "qwen3omni":
                 
-                message.append(dict(type='video', value=row['video']))
-                message.append(dict(type='audio', value=row['video']))
-            else:
-                nid = row['_index']
-                video_path = f"{self.root}/{nid}.mp4"
-                message.append(dict(type='video', value=video_path))
-                if self.model_type == "qwen2_5omni" or self.model_type == "qwen3omni":
-                    
-                    message.append(dict(type='audio', value=video_path))
-                
+                message.append(dict(type='audio', value=video_path))
+            
                     
             message.append(row['seconds'])
         else:
