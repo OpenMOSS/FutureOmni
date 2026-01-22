@@ -151,7 +151,7 @@ if __name__ == "__main__":
         for idx, item in enumerate(batch_items):
             if feature_dir is not None:
                 if dataset == "futureomni":
-                    save_feature_path = "/".join([feature_dir, "feature", str(item['id']) + ".pt"])
+                    save_feature_path = "/".join([feature_dir, "feature", str(item['qid']) + ".pt"])
                 else:
                     video_path = item['video']
                     video_name = video_path.split("/")[-1]
@@ -171,7 +171,11 @@ if __name__ == "__main__":
             else:
                 prompt = f"Question: {question}\nOptions:\n{formatted_choices}\nThe best answer is:"
             
-            video_path = item['video']
+            # Use qid to construct video path for futureomni dataset
+            if dataset == "futureomni":
+                video_path = os.path.join(args.root, f"{item['qid']}.mp4")
+            else:
+                video_path = item['video']
             
             prompt_text = ""
             alphs = ['A','B','C','D','E','F']
@@ -195,8 +199,8 @@ if __name__ == "__main__":
             # print(f"save_video_path:{save_video_path}")
             if feature_dir is not None:
                 if dataset == "futureomni":
-                    save_video_path =  "/".join([feature_dir, "video", str(item['id']) + ".pt"])
-                    save_audio_path =  "/".join([feature_dir, "audio", str(item['id']) + ".pt"])
+                    save_video_path =  "/".join([feature_dir, "video", str(item['qid']) + ".pt"])
+                    save_audio_path =  "/".join([feature_dir, "audio", str(item['qid']) + ".pt"])
                 else:
                     save_video_path =  "/".join([feature_dir, "video", video_name + ".pt"])
                     save_audio_path = "/".join([feature_dir, "audio",  video_name + ".pt"])
