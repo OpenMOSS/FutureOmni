@@ -21,10 +21,10 @@ def sort_by_time_string(strings):
         if match:
             timestamp_str = match.group(1)
             # Convert to datetime object for proper sorting
-            return datetime.strptime(timestamp_str, '%Y%m%d_%H%M%S')
+            return datetime.datetime.strptime(timestamp_str, '%Y%m%d_%H%M%S')
         else:
             # Return min datetime if no timestamp found (puts items without timestamps first)
-            return datetime.min
+            return datetime.datetime.min
     
     return sorted(strings, key=extract_timestamp)
 
